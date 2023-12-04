@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 // layouts
 import MainLayout from 'src/layouts/main';
+import HomeHero from '../home-hero';
 // components
 
 
@@ -41,6 +42,9 @@ export default function HomeView() {
 
   return (
     <MainLayout>
+      
+      <HomeHero />
+      
       <Box
         sx={{
           overflow: 'hidden',

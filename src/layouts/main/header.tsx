@@ -25,6 +25,7 @@ import { navConfig } from './config-navigation';
 //
 import { SettingsButton, HeaderShadow, LoginButton } from 'src/layouts/_common';
 import { Typography } from '@mui/material';
+import Iconify from 'src/components/iconify';
 //------------------------------------------------------------------
 
 export default function Header() {
@@ -35,7 +36,7 @@ export default function Header() {
     const offsetTop = useOffSetTop(HEADER.H_DESKTOP);
 
     return (
-        <AppBar>
+        <AppBar color= 'primary'>
             <Toolbar
                 disableGutters
                 sx={{
@@ -57,30 +58,40 @@ export default function Header() {
                         }),
                     }}
             >
-                <Container sx={{ height: 1, display: 'flex', alignItem: 'center'}}>
-                    <Badge
-                        sx={{
-                        [`& .${badgeClasses.badge}`]: {
-                            top: 8,
-                            right: -16,
-                        },
-                        }}
-                        badgeContent={
-                        <Link
-                            href={'google.com'} //{paths.changelog}
-                            target="_blank"
-                            rel="noopener"
-                            underline="none"
-                            sx={{ ml: 1 }}
-                        >
-                        </Link>
-                        }
-                    >
-                        <Logo />
-                    </Badge>
-                    <Typography variant='subtitle1' color={'white'} sx={{ pt: 1, ml: 0.5 }}>MKTLogin</Typography>
-                    <Box sx={{flexGrow: 1}} />
-                    {mdUp && <NavDeskTop offsetTop={offsetTop} data={navConfig} />}
+                <Container sx={{ height: 10 , display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <Stack direction='row' alignItems='center' justifyContent='center' spacing={5}>
+                        <Stack direction='row' alignItems='center' justifyContent='center' >
+                            <Badge
+                                sx={{
+                                    
+                                }}
+                                badgeContent={
+                                <Link
+                                    href={'google.com'} //{paths.changelog}
+                                    target="_blank"
+                                    rel="noopener"
+                                    underline="none"
+                                    sx={{ ml: 1 }}
+                                >
+                                </Link>
+                                }
+                            >
+                                <Logo />
+                            </Badge>
+                            <Typography variant='h3' color={'white'} sx={{ml: 1 }}>MKTLogin</Typography>
+                            <Box sx={{flexGrow: 1}} />
+                        </Stack>
+                        {/* {mdUp && <NavDeskTop offsetTop={offsetTop} data={navConfig} />} */}
+                        <Stack direction='row' spacing={3} alignItems='center' justifyContent='center'>
+                            <Typography variant='subtitle2' >About the promo</Typography>
+                            <Typography variant='subtitle2' >Trường hợp sử dụng</Typography>
+                        </Stack>
+                    </Stack>
+                    <Stack direction='row' alignItems='center' justifyContent='center' >
+                        <Button startIcon={<Iconify icon='mdi:fire' color={theme.palette.error.dark}/>} variant='outlined' sx={{ width: 122 , height: 36 }}>Bảng giá </Button>
+                        <Button variant='contained'  sx= {{ width: 192 , height: 36 }} color='success' >Dowload to try free </Button>
+                    </Stack>
+                    
                 </Container>
             </Toolbar>
         </AppBar>

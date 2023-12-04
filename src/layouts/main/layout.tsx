@@ -35,7 +35,6 @@ export default function MainLayout({ children }: Props) {
                 {children}
             </Box>
             <Box sx= {{ py: 20 }}>
-                Chao mung anh em den voi trang home nay 
             </Box>
         </Box>
     )
